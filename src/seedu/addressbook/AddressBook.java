@@ -625,30 +625,6 @@ public class AddressBook {
         }
     }
 
-    private static void showToUser(String msg1) {
-        System.out.println(LINE_PREFIX + msg1);
-    }
-
-    private static void showToUser(String msg1, String msg2) {
-        System.out.println(LINE_PREFIX + msg1);
-        System.out.println(LINE_PREFIX + msg2);
-    }
-
-    private static void showToUser(String msg1, String msg2, String msg3) {
-        System.out.println(LINE_PREFIX + msg1);
-        System.out.println(LINE_PREFIX + msg2);
-        System.out.println(LINE_PREFIX + msg3);
-    }
-
-    private static void showToUser(String msg1, String msg2, String msg3, String msg4, String msg5) {
-        System.out.println(LINE_PREFIX + msg1);
-        System.out.println(LINE_PREFIX + msg2);
-        System.out.println(LINE_PREFIX + msg3);
-        System.out.println(LINE_PREFIX + msg4);
-        System.out.println(LINE_PREFIX + msg5);
-
-    }
-
     /**
      * Shows the list of persons to the user.
      * The list will be indexed, starting from 1.
