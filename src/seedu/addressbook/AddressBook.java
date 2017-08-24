@@ -500,11 +500,11 @@ public class AddressBook {
      * @return feedback display message for the operation result
      */
     private static String executeDeletePerson(String commandArgs) {
-        if (isDeletePersonArgsInvalid(commandArgs)) {
+        if (!isDeletePersonArgsValid(commandArgs)) {
             return getMessageForInvalidCommandInput(COMMAND_DELETE_WORD, getUsageInfoForDeleteCommand());
         }
         final int targetVisibleIndex = extractTargetIndexFromDeletePersonArgs(commandArgs);
-        if (isDisplayIndexInvalidForLastPersonListingView(targetVisibleIndex)) {
+        if (!isDisplayIndexValidForLastPersonListingView(targetVisibleIndex)) {
             return MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
         }
         final HashMap<PersonProperty, String> targetInModel = getPersonByLastVisibleIndex(targetVisibleIndex);
@@ -518,12 +518,12 @@ public class AddressBook {
      * @param rawArgs raw command args string for the delete person command
      * @return whether the input args string is valid
      */
-    private static boolean isDeletePersonArgsInvalid(String rawArgs) {
+    private static boolean isDeletePersonArgsValid(String rawArgs) {
         try {
             final int extractedIndex = Integer.parseInt(rawArgs.trim()); // use standard libraries to parse
-            return extractedIndex < DISPLAYED_INDEX_OFFSET;
+            return extractedIndex >= DISPLAYED_INDEX_OFFSET;
         } catch (NumberFormatException nfe) {
-            return true;
+            return false;
         }
     }
 
@@ -543,8 +543,8 @@ public class AddressBook {
      * @param index to check
      * @return whether it is valid
      */
-    private static boolean isDisplayIndexInvalidForLastPersonListingView(int index) {
-        return index < DISPLAYED_INDEX_OFFSET || index >= latestPersonListingView.size() + DISPLAYED_INDEX_OFFSET;
+    private static boolean isDisplayIndexValidForLastPersonListingView(int index) {
+        return index >= DISPLAYED_INDEX_OFFSET && index < latestPersonListingView.size() + DISPLAYED_INDEX_OFFSET;
     }
 
     /**
@@ -624,8 +624,8 @@ public class AddressBook {
         }
     }
 
-    private static void showToUser(String message1) {
-        System.out.println(LINE_PREFIX + message1);
+    private static void showToUser(String msg1) {
+        System.out.println(LINE_PREFIX + msg1);
     }
 
     private static void showToUser(String msg1, String msg2) {
