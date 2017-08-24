@@ -500,7 +500,7 @@ public class AddressBook {
      * @return feedback display message for the operation result
      */
     private static String executeDeletePerson(String commandArgs) {
-        if (!isDeletePersonArgsValid(commandArgs)) {
+        if (isDeletePersonArgsInvalid(commandArgs)) {
             return getMessageForInvalidCommandInput(COMMAND_DELETE_WORD, getUsageInfoForDeleteCommand());
         }
         final int targetVisibleIndex = extractTargetIndexFromDeletePersonArgs(commandArgs);
@@ -518,12 +518,12 @@ public class AddressBook {
      * @param rawArgs raw command args string for the delete person command
      * @return whether the input args string is valid
      */
-    private static boolean isDeletePersonArgsValid(String rawArgs) {
+    private static boolean isDeletePersonArgsInvalid(String rawArgs) {
         try {
             final int extractedIndex = Integer.parseInt(rawArgs.trim()); // use standard libraries to parse
-            return extractedIndex >= DISPLAYED_INDEX_OFFSET;
+            return extractedIndex < DISPLAYED_INDEX_OFFSET;
         } catch (NumberFormatException nfe) {
-            return false;
+            return true;
         }
     }
 
@@ -624,8 +624,8 @@ public class AddressBook {
         }
     }
 
-    private static void showToUser(String msg1) {
-        System.out.println(LINE_PREFIX + msg1);
+    private static void showToUser(String message1) {
+        System.out.println(LINE_PREFIX + message1);
     }
 
     private static void showToUser(String msg1, String msg2) {
