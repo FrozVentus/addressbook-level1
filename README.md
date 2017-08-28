@@ -110,8 +110,12 @@ Examples:
   > Deletes the 1st person in the results of the `find` command.
 
 #### Clearing all entries: `clear`
-> Clears all entries from the address book.  
-Format: `clear`  
+Format: `clear` 
+> Clears all entries from the address book.   
+
+#### Sorting the Address Book : `sort`
+Format: `sort`
+> Sort all entries from the address book according to alphabetical order.  
 
 #### Exiting the program: `exit`
 Format: `exit`  
