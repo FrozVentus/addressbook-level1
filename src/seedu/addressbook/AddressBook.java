@@ -83,7 +83,7 @@ public class AddressBook {
     private static final String MESSAGE_STORAGE_FILE_CREATED = "Created new empty storage file: %1$s";
     private static final String MESSAGE_WELCOME = "Welcome to your Address Book!";
     private static final String MESSAGE_USING_DEFAULT_FILE = "Using default storage file : " + DEFAULT_STORAGE_FILEPATH;
-    private static final String MESSAGE_ADDRESSBOOK_SORTED_ALPHEBETICAL = "AddressBook has been sorted alphabetically!";
+    private static final String MESSAGE_ADDRESSBOOK_SORTED_ALPHABETICAL = "AddressBook has been sorted alphabetically!";
 
     // These are the prefix strings to define the data type of a command parameter
     private static final String PERSON_DATA_PREFIX_PHONE = "p/";
@@ -599,7 +599,7 @@ public class AddressBook {
      */
     private static String executeSortPersonAlphabetica() {
         sortAddressBookAlphabetical();
-        return MESSAGE_ADDRESSBOOK_SORTED_ALPHEBETICAL;
+        return MESSAGE_ADDRESSBOOK_SORTED_ALPHABETICAL;
     }
 
     /*
@@ -833,7 +833,7 @@ public class AddressBook {
     }
 
     /**
-     * Sorts all persons in the address book and save changes to file.
+     * Sorts all persons in the address book in alphabetical order and save changes to file.
      */
     private static void sortAddressBookAlphabetical() {
         ALL_PERSONS.sort((person1, person2) -> person1.get(PersonProperty.NAME).compareTo(person2.get(PersonProperty.NAME)));
