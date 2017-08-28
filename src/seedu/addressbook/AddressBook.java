@@ -1091,8 +1091,8 @@ public class AddressBook {
                 + getUsageInfoForViewCommand() + LS
                 + getUsageInfoForDeleteCommand() + LS
                 + getUsageInfoForClearCommand() + LS
-                + getUsageInfoForExitCommand() + LS
                 + getUsageInfoForSortCommand() + LS
+                + getUsageInfoForExitCommand() + LS
                 + getUsageInfoForHelpCommand();
     }
 
@@ -1143,8 +1143,8 @@ public class AddressBook {
 
     /** Returns the string for showing 'sort' command usage instruction */
     private static String getUsageInfoForSortCommand() {
-        return String.format(MESSAGE_COMMAND_HELP, COMMAND_SORT_WORD, COMMAND_SORT_DESC)
-                + String.format(MESSAGE_COMMAND_HELP_EXAMPLE, COMMAND_SORT_EXAMPLE);
+        return String.format(MESSAGE_COMMAND_HELP, COMMAND_SORT_WORD, COMMAND_SORT_DESC) + LS
+                + String.format(MESSAGE_COMMAND_HELP_EXAMPLE, COMMAND_SORT_EXAMPLE) + LS;
     }
 
 
